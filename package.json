@@ -10,6 +10,7 @@
     "sync-theme": "node scripts/sync-theme.mjs"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.7"
+    "@11ty/eleventy": "3.1.6",
+    "wrangler": "4.151.2"
   }
 }
