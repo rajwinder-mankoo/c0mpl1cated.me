@@ -1,0 +1,137 @@
+/* c0mpl1cated.me additions. Everything else comes from the portfolio's style.css
+   (kept identical via scripts/sync-theme.mjs). Uses the same tokens: --red, --line, --mono. */
+
+/* The leetspeak wordmark must stay in the mono face so "0" never reads as "O". */
+.hero h1.lab-title {
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+.hero h1.lab-title em {
+  font-family: var(--serif);
+}
+
+/* Hero: the three machines, as a quiet rack list */
+.lab-machines {
+  border-top: 1px solid var(--line);
+  margin-left: 40px;
+}
+.lab-machines-label {
+  color: var(--muted);
+  padding: 14px 0 6px;
+}
+.lab-machine {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  gap: 18px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.lab-machine strong {
+  display: block;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+.lab-machine div span {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.lab-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #555;
+  transform: translateY(-2px);
+}
+.lab-machine.is-always .lab-led {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 10px rgba(194, 42, 42, 0.7);
+}
+.lab-role {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Principles: three open columns separated by the shared hairline */
+.lab-principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+}
+.lab-principles dt {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.035em;
+  margin-bottom: 12px;
+}
+.lab-principles dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 36ch;
+}
+.lab-stack {
+  margin-top: 60px;
+}
+
+/* Projects: rows, not cards */
+.lab-projects {
+  border-top: 1px solid var(--line);
+}
+.lab-project {
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
+  gap: 40px;
+  align-items: start;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
+}
+.lab-project h3 {
+  font-size: 21px;
+  letter-spacing: -0.035em;
+}
+.lab-project p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 8px;
+  max-width: 68ch;
+}
+.lab-project .inline-tools {
+  margin-top: 16px;
+}
+.lab-project .text-link {
+  white-space: nowrap;
+}
+.lab-project-status {
+  color: var(--muted);
+  padding-top: 5px;
+}
+.lab-project-status.status-complete,
+.lab-project-status.status-active {
+  color: var(--red);
+}
+.lab-empty {
+  color: var(--muted);
+  padding-block: 30px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 1000px) {
+  .lab-machines {
+    margin: 40px 0 0;
+  }
+  .lab-principles {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .lab-project {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

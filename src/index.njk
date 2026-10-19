@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{% include "head.njk" %}</head>
+<body>
+{% include "nav.njk" %}
+<main id="main">
+  <section class="hero shell" id="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Homelab · Security lab · Build log</p>
+      <h1 id="hero-title" class="lab-title">c0mpl1cated<br /><em>.labs</em></h1>
+      <p class="hero-intro">Three machines, built from bare metal and documented as I go.<br class="desktop-break" /> The lab behind my security work.</p>
+      <div class="hero-actions"><a class="button button-red" href="#projects">See the projects <span aria-hidden="true">↗</span></a><a class="text-link" href="{{ site.portfolio }}">Visit my portfolio <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="lab-machines" aria-label="The machines in the lab">
+      <p class="mono lab-machines-label">In the rack</p>
+      <ul>
+        {% for m in lab.machines %}
+        <li class="lab-machine{% if m.always %} is-always{% endif %}">
+          <span class="lab-led" aria-hidden="true"></span>
+          <div><strong>{{ m.name }}</strong><span>{{ m.job }}</span></div>
+          <span class="mono lab-role">{{ m.role }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section id="lab" class="section shell" aria-labelledby="lab-title">
+    <div class="section-heading"><h2 id="lab-title">How the lab<br /><em>is built.</em></h2><p>Three rules shaped every decision in the rebuild.</p></div>
+    <dl class="lab-principles">
+      {% for p in lab.principles %}
+      <div><dt>{{ p.title }}</dt><dd>{{ p.text }}</dd></div>
+      {% endfor %}
+    </dl>
+    <div class="skill-group lab-stack"><h3>Running on</h3><p>{{ lab.stack | join(' · ') }}</p></div>
+  </section>
+
+  <section id="projects" class="section shell" aria-labelledby="projects-title">
+    <div class="section-heading"><h2 id="projects-title">Built. Tested.<br /><em>Documented.</em></h2><p>Each project builds on the one before it. Write-ups live on my portfolio.</p></div>
+    <div class="lab-projects">
+      {% for item in feeds.labs %}
+      <article class="lab-project">
+        <span class="mono lab-project-status {{ item.statusClass }}">{{ item.status }}</span>
+        <div>
+          <h3>{{ item.name | replace(' — ', ' / ') }}</h3>
+          <p>{{ item.description }}</p>
+          {% if item.tags %}<ul class="inline-tools" aria-label="Tools">{% for tag in item.tags %}<li>{{ tag }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% if item.writeup %}<a class="text-link" href="{{ site.portfolio }}{{ item.writeup }}">Read the write-up <span aria-hidden="true">↗</span></a>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="journal" class="section shell journal-section" aria-labelledby="journal-title">
+    <div class="section-heading"><h2 id="journal-title">Notes from<br /><em>the process.</em></h2><p>What worked, what broke, and what I learned.</p></div>
+    {% for post in feeds.writeups %}
+    <a class="journal-entry" href="{{ post.url }}"><span class="mono">{{ post.date | readableDate }}</span><h3>{{ post.title }}</h3><span class="journal-arrow" aria-hidden="true">↗</span><p>{{ post.summary }}</p></a>
+    {% else %}
+    <p class="lab-empty">The first write-up is on its way.</p>
+    {% endfor %}
+    <div class="lab-social"><div><h3>The lab, in progress.</h3><p>Shorter updates and build carousels go out on Instagram and YouTube as <strong>c0mpl1cated.labs</strong>.</p></div><div class="lab-social-links"><a class="text-link" href="{{ site.instagram }}">Instagram <span aria-hidden="true">↗</span></a><a class="text-link" href="{{ site.youtube }}">YouTube <span aria-hidden="true">↗</span></a></div></div>
+  </section>
+
+  <section id="about" class="section shell about-section" aria-labelledby="about-title">
+    <div class="about-heading"><h2 id="about-title">Who runs<br /><em>the lab.</em></h2><p class="about-caption">Rajwinder Singh Mankoo.<br />Cybersecurity, Southern Utah University.</p></div>
+    <div class="about-copy">
+      <p class="large-copy">I build the lab to learn how systems fail, and how to defend them.</p>
+      <p>I'm working toward detection engineering and purple-team roles. This site is the lab itself: the machines, the decisions, and the mistakes. My experience, research, certifications, and résumé are on my portfolio.</p>
+      <div class="hero-actions"><a class="button button-red" href="{{ site.portfolio }}">Portfolio <span aria-hidden="true">↗</span></a><a class="text-link" href="{{ site.resume }}">Résumé <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+</main>
+{% include "footer.njk" %}
+</body></html>

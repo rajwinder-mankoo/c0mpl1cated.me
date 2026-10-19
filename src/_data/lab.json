@@ -1,0 +1,13 @@
+{
+  "machines": [
+    { "name": "Dell OptiPlex 5070", "role": "Always on", "always": true, "job": "Personal services, backups, the management dashboard, and the tunnel connector." },
+    { "name": "Dell Precision 3640", "role": "On demand", "always": false, "job": "Lab VMs and experiments. Powered on when there's work to do." },
+    { "name": "iMac (2019)", "role": "On demand", "always": false, "job": "The heaviest lab workloads. An i9 and 64 GB of RAM, running Proxmox." }
+  ],
+  "principles": [
+    { "title": "Nothing exposed", "text": "No port forwards. Published apps go out through an outbound-only tunnel, behind an identity check that happens before traffic reaches the lab." },
+    { "title": "One job per credential", "text": "Keys per device, TOTP on every admin interface, read-only tokens for anything that only needs to look." },
+    { "title": "Off when idle", "text": "Three standalone Proxmox nodes instead of a cluster, so the machines that heat the room only run when I need them." }
+  ],
+  "stack": ["Proxmox VE", "Proxmox Datacenter Manager", "Debian", "Docker", "Cloudflare Tunnel", "Cloudflare Access", "Tailscale", "FastAPI", "React"]
+}

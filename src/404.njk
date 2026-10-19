@@ -1,0 +1,17 @@
+---
+permalink: /404.html
+title: Not found
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>{% include "head.njk" %}</head>
+<body>
+{% include "nav.njk" %}
+<main id="main" class="shell section">
+  <p class="eyebrow">404</p>
+  <h1 class="error-title">That page isn't in the lab.</h1>
+  <p class="error-copy">The link may be old, or the page moved to the portfolio.</p>
+  <div class="hero-actions"><a class="button button-red" href="/">Back to c0mpl1cated.labs <span aria-hidden="true">↗</span></a><a class="text-link" href="{{ site.portfolio }}">Go to the portfolio <span aria-hidden="true">↗</span></a></div>
+</main>
+{% include "footer.njk" %}
+</body></html>

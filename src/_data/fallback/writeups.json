@@ -1,0 +1,3 @@
+[
+  {"title": "Project 01: Standing Up a Wazuh SIEM From Nothing", "summary": "Deploying a single-node Wazuh SIEM on a freshly-discovered hypervisor: storage tradeoffs, two real bugs, and the moment MITRE ATT&CK mapping showed up without writing a single detection rule.", "date": "2026-08-01T00:00:00.000Z", "url": "https://rajwindersinghmankoo.dev/writeups/project-01-wazuh-siem/"}
+]
