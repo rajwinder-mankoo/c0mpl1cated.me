@@ -1,0 +1,11 @@
+{
+  "name": "c0mpl1cated-me",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page"
+  },
+  // Keep on until the custom domain works, then set to false
+  "workers_dev": true,
+  "preview_urls": false
+}
